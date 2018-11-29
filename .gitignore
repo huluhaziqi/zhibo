@@ -43,3 +43,9 @@ secrets.yml
 .mvn
 src/main/resources/static/
 src/main/resources/templates/
+*.class
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
