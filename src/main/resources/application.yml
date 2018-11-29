@@ -1,0 +1,74 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: MyZhibo
+
+  datasource:
+    hikari:
+      connection-timeout: 5000
+      maximum-pool-size: 20
+      validation-timeout: 5000
+
+server:
+  port: 8080
+
+
+qcloudvod:
+  baseUrl: xxx
+
+jpush:
+  appKey: xxxx
+  masterSecret: xxxx
+
+---
+spring:
+  profiles: dev
+
+  datasource:
+    hikari:
+      jdbc-url: xxx
+      username: xx
+      password: xxx
+
+datasource:
+  first:
+    jdbcUrl: jdbc:mysql://127.0.0.1:3306/lin?useUnicode=true
+    username: root
+    password: root
+    maximumPoolSize: 10
+  second:
+    jdbcUrl: jdbc:mysql://127.0.0.1:3306/lin?useUnicode=true
+    username: root
+    password: root
+    maximumPoolSize: 10
+
+  redis:
+    port: 7036
+    host: xxxx
+    password: my_redis
+    persistDb: 1
+    cacheDb: 2
+    maxIdle: 5
+    maxTotal: 10
+
+
+kafka:
+  my:
+    producer:
+      bootstrap:
+        servers: XXXX
+      acks: 1
+      key:
+        serializer: org.apache.kafka.common.serialization.StringSerializer
+      value:
+        serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer:
+      zookeeper:
+        connect: Xxxx:xx
+      group:
+        id: zhibo-group-dev
+  topic:
+    liveroom-action-topic: zhibo_liveroom_action_dev
+
+---
