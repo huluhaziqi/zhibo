@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *#
 *.iml
 *.ipr
@@ -44,8 +45,15 @@ secrets.yml
 src/main/resources/static/
 src/main/resources/templates/
 *.class
-*.war
-*.ear
-*.zip
-*.tar.gz
-*.rar
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+
