@@ -46,9 +46,9 @@ public class QCloudVODVideoInfoV2Response {
         private Integer duration; // 视频时长。单位：秒
         private String description; // 视频描述
         private String status; // 视频状态， normal：正常
-        private Integer createTime; // 视频创建时间，距离1970-01-01 00:00:00的秒数
-        private Integer updateTime; // 视频信息最近更新时间，距离1970-01-01 00:00:00的秒数
-        private Integer expireTime; // 视频过期时间，距离1970-01-01 00:00:00的秒数
+        private Integer createTime; // 视频创建时xx，距离1970-01-01 00:00:00的秒数
+        private Integer updateTime; // 视频信息最近更新时xx，距离1970-01-01 00:00:00的秒数
+        private Integer expireTime; // 视频过期时xx，距离1970-01-01 00:00:00的秒数
         private Integer classificationId; // 视频分类Id
         private String classificationName; // 视频分类名称
         private Integer playerId; // 播放器Id

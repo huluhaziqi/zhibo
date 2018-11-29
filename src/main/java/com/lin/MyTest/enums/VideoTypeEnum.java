@@ -1,7 +1,7 @@
 package com.lin.MyTest.enums;
 
 public enum VideoTypeEnum {
-    LIVEROOM(1),UPLOAD(2);
+    Test(1),UPLOAD(2);
 
     private byte value;
 

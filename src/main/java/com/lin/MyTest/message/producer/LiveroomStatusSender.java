@@ -1,6 +1,6 @@
 package com.lin.MyTest.message.producer;
 
-import com.lin.MyTest.service.LiveroomService;
+import com.lin.MyTest.service.TestService;
 import com.lin.MyTest.util.JsonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,19 +15,19 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingQueue;
 
 @Component
-public class LiveroomStatusSender {
+public class TestStatusSender {
 
 	@Autowired
 	private Sender sender;
 
 	@Autowired
-	private LiveroomService liveroomService;
+	private TestService TestService;
 
-	@Value("${kafka.topic.liveroom-action-topic}")
-	private String liveroomActionTopic;
+	@Value("${kafka.topic.Test-action-topic}")
+	private String TestActionTopic;
 
 	private static final int QUEUE_SIZE = 16 * 1024;
-	private static BlockingQueue<Map<String, Object>> liveroomActionBlockingQueue = new LinkedBlockingQueue<>(QUEUE_SIZE);
+	private static BlockingQueue<Map<String, Object>> TestActionBlockingQueue = new LinkedBlockingQueue<>(QUEUE_SIZE);
 
 	@PostConstruct
 	private void init() {
@@ -36,10 +36,10 @@ public class LiveroomStatusSender {
 		messageSender.execute(() -> {
             while (true) {
                 try {
-                    Map<String, Object> map = liveroomActionBlockingQueue.take();
-                    long key = (Long) map.get("liveroom_id");
+                    Map<String, Object> map = TestActionBlockingQueue.take();
+                    long key = (Long) map.get("Test_id");
                     String value = JsonUtils.obj2JsonStr(map);
-                    sender.send(liveroomActionTopic, String.valueOf(key), value);
+                    sender.send(TestActionTopic, String.valueOf(key), value);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -47,12 +47,12 @@ public class LiveroomStatusSender {
         });
 	}
 
-	public void sendLiveroomActionMessage(long liveroomId) {
+	public void sendTestActionMessage(long TestId) {
 		Map<String, Object> resultMap = new HashMap<>();
-		resultMap.put("liveroom_id", liveroomId);
+		resultMap.put("Test_id", TestId);
 		resultMap.put("t", System.currentTimeMillis());
 
-		liveroomActionBlockingQueue.offer(resultMap);
+		TestActionBlockingQueue.offer(resultMap);
 
 	}
 }

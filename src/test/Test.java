@@ -27,9 +27,9 @@ public class Test {
 
 //        ActivityEntity activityEntity = new ActivityEntity();
 //
-//        activityEntity.setTitle("test");
+//        activityEntity.setTitle("Test");
 //        activityEntity.setCreateTime(new Date(System.currentTimeMillis()));
-//        activityEntity.setDetail("test");
+//        activityEntity.setDetail("Test");
 //        activityEntity.setExpireTime(new Date(System.currentTimeMillis()));
 //        activityEntity.setId(23);
 //        activityEntity.setImageUrl("http");

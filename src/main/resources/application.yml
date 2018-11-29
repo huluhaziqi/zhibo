@@ -69,6 +69,6 @@ kafka:
       group:
         id: zhibo-group-dev
   topic:
-    liveroom-action-topic: zhibo_liveroom_action_dev
+    Test-action-topic: zhibo_Test_action_dev
 
 ---
